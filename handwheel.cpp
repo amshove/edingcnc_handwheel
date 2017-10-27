@@ -8,7 +8,7 @@
 
 Handwheel::Handwheel(QString port, QObject *parent) : QObject(parent), port(port)
 {
-    qDebug() << "Starting...";
+    qDebug("Starting...");
 }
 
 void Handwheel::init(){
@@ -21,7 +21,7 @@ void Handwheel::init(){
         rc = CncLoadJob(L"");
     }else {
         qDebug("Error connecting!");
-        qApp->quit();
+        exit(2);
     }
 
     handwheel = new QtFirmata(port);
@@ -31,19 +31,17 @@ void Handwheel::init(){
     if(handwheel->connect()) qDebug("Successfully connected!");
     else {
         qDebug("Error connecting!");
-        qApp->quit();
+        exit(3);
     }
+}
 
+void Handwheel::start(){
     handwheel->pinMode(13, QtFirmata::PINMODE_OUTPUT);
 
     statusTimer= new QTimer(this);
     statusTimer->setInterval(1000);
     connect(statusTimer, SIGNAL(timeout()), this, SLOT(getStatus()));
     statusTimer->start();
-}
-
-void Handwheel::start(){
-
 }
 
 void Handwheel::getStatus(){

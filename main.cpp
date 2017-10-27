@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
 
     if(argc != 2){
-        qDebug() << "Usage: edingcnc_handwheel <port>";
+        qDebug("Usage: edingcnc_handwheel <port>");
         return -1;
     }
 
