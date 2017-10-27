@@ -1,17 +1,25 @@
 QT -= gui
+QT += core
 
 CONFIG += c++11 console
 CONFIG -= app_bundle
 
-# The following define makes your compiler emit warnings if you use
-# any feature of Qt which as been marked deprecated (the exact warnings
-# depend on your compiler). Please consult the documentation of the
-# deprecated API in order to know how to port your code away from it.
-DEFINES += QT_DEPRECATED_WARNINGS
+# https://github.com/jazzycamel/QtFirmata
+QTFIRMATA_DIR="C:\Users\anwender\Desktop\QtFirmata"
+QTFIRMATA_LIB="C:\Users\anwender\Desktop\QtFirmata\build-QtFirmata-Desktop_Qt_5_6_2_MinGW_32bit-Debug\debug"
 
-# You can also make your code fail to compile if you use deprecated APIs.
-# In order to do so, uncomment the following line.
-# You can also select to disable deprecated APIs only up to a certain version of Qt.
-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+CNCAPI_DIR="C:/CNC4.02/cncapi"
 
-SOURCES += main.cpp
+INCLUDEPATH += $$QTFIRMATA_DIR
+DEPENDPATH += $$QTFIRMATA_DIR
+LIBS += -L$$QTFIRMATA_LIB -lQtFirmata
+
+INCLUDEPATH += $$CNCAPI_DIR
+DEPENDPATH += $$CNCAPI_DIR
+LIBS += -L$$CNCAPI_DIR -lcncapi
+
+SOURCES += main.cpp \
+    handwheel.cpp
+
+HEADERS += \
+    handwheel.h
