@@ -5,10 +5,10 @@ CONFIG += c++11 console
 CONFIG -= app_bundle
 
 # https://github.com/jazzycamel/QtFirmata
-QTFIRMATA_DIR="C:\Users\anwender\Desktop\QtFirmata"
-QTFIRMATA_LIB="C:\Users\anwender\Desktop\QtFirmata\build-QtFirmata-Desktop_Qt_5_6_2_MinGW_32bit-Debug\debug"
+QTFIRMATA_DIR="C:\Users\Torsten\Desktop\Handwheel\QtFirmata"
+QTFIRMATA_LIB="C:\Users\Torsten\Desktop\Handwheel\QtFirmata_build\debug"
 
-CNCAPI_DIR="C:/CNC4.02/cncapi"
+CNCAPI_DIR="C:/CNC4.03/cncapi"
 
 INCLUDEPATH += $$QTFIRMATA_DIR
 DEPENDPATH += $$QTFIRMATA_DIR
